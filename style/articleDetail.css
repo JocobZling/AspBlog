@@ -1,0 +1,31 @@
+﻿.content {
+    font-size: 18px;
+}
+#containerBody {
+    width: 55%;
+    float: left;
+    margin-left: 9%;
+    margin-top: 20px;
+}
+.col-lg-12 {
+    padding-left: 0;!important;
+    padding-right: 0;!important;
+}
+.detail{
+
+}
+.title {
+    font-family: "Times New Roman",Georgia,Serif;
+    font-size: 35px;
+}
+.contentDetail {
+    color: grey;
+    font-family: "Times New Roman",Georgia,Serif;
+    font-size: 18px;
+}
+.detail1 {
+    margin-left: 70%;
+}
+.detail2{
+    margin-left: 54%;
+}
