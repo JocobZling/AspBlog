@@ -10,6 +10,8 @@
     <form id="form1" runat="server">
     <div>
     
+        <asp:LinkButton ID="LinkButton1" runat="server" PostBackUrl="~/userIndex.aspx">LinkButton</asp:LinkButton>
+    
     </div>
     </form>
 </body>
