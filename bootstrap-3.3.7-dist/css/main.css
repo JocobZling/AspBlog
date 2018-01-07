@@ -1,0 +1,70 @@
+/*
+body {
+    padding-bottom: 40px;
+    color: #5a5a5a;
+}
+*/
+
+#navbar-wrapper {
+    position: absolute;
+    top: 20px;
+    left: 60px;
+    right: 60px;
+    /*  margin-top: 20px;
+        margin-bottom: -90px;*/
+}
+.navbar-inverse{
+    background-color: #000000;
+    border-color: #0f0f0f;
+}
+.nav-header {
+    display: block;
+    padding: 3px 15px;
+    font-size: 11px;
+    font-weight: bold;
+    line-height: 20px;
+    color: #999999;
+    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
+    text-transform: uppercase;
+}
+
+.marketing {
+    text-align: center;
+}
+
+.container {
+    top: 100px;
+    margin-right: auto;
+    margin-left: auto;
+    position: relative;
+}
+
+h1 {
+    display: block;
+    text-align: left;
+    font-size: 2em;
+    font-weight: bold;
+}
+
+h3 {
+    font-size: 31.5px;
+    line-height: 25px;
+}
+
+p {
+    display: block;
+    -webkit-margin-before: 1em;
+    -webkit-margin-after: 1em;
+    -webkit-margin-start: 0px;
+    -webkit-margin-end: 0px;
+}
+
+.lead {
+    margin:0px 0px 80px -150px;
+    text-align: left;
+    line-height: 30px;/*行间距*/
+}
+/*.navbar-inverse{
+    background-color: transparent;
+    border-color: transparent;
+}*/
