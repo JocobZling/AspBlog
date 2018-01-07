@@ -1,0 +1,54 @@
+<?xml version="1.0" standalone="yes"?>
+<dsPubs xmlns="aaa">
+  <xs:schema id="dsPubs" targetNamespace="aaa" xmlns:mstns="aaa" xmlns="aaa" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" attributeFormDefault="qualified" elementFormDefault="qualified">
+    <xs:element name="dsPubs" msdata:IsDataSet="true" msdata:Locale="en-US">
+      <xs:complexType>
+        <xs:choice minOccurs="0" maxOccurs="unbounded">
+          <xs:element name="students">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element name="st_id" type="xs:string" />
+                <xs:element name="st_name" type="xs:string" />
+                <xs:element name="st_sex" type="xs:string" />
+                <xs:element name="st_birthday" type="xs:string" />
+                <xs:element name="st_city" type="xs:string" />
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+        </xs:choice>
+      </xs:complexType>
+      <xs:unique name="Constraint1">
+        <xs:selector xpath=".//mstns:students" />
+        <xs:field xpath="mstns:st_id" />
+      </xs:unique>
+    </xs:element>
+  </xs:schema>
+  <students>
+    <st_id>20082410105</st_id>
+    <st_name>封懿</st_name>
+    <st_sex>女</st_sex>
+    <st_birthday>1990-2-21</st_birthday>
+    <st_city>郑州</st_city>
+  </students>
+  <students>
+    <st_id>20082410106</st_id>
+    <st_name>付立</st_name>
+    <st_sex>男</st_sex>
+    <st_birthday>1989-5-6</st_birthday>
+    <st_city>北京</st_city>
+  </students>
+  <students>
+    <st_id>11</st_id>
+    <st_name>11</st_name>
+    <st_sex>11</st_sex>
+    <st_birthday>1997-2-5</st_birthday>
+    <st_city>湖北</st_city>
+  </students>
+  <students>
+    <st_id>20082410103</st_id>
+    <st_name>楚宇</st_name>
+    <st_sex>女</st_sex>
+    <st_birthday>1991-5-4</st_birthday>
+    <st_city>天津</st_city>
+  </students>
+</dsPubs>
