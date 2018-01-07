@@ -1,10 +1,7 @@
-﻿.content {
-    font-size: 18px;
-}
-#containerBody {
+﻿#containerBody {
     width: 55%;
     float: left;
-    margin-left: 9%;
+    margin-left: 2%;
     margin-top: 20px;
 }
 .col-lg-12 {
