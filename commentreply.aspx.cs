@@ -65,7 +65,7 @@ public partial class commentreply : System.Web.UI.Page
 
             sqlconn.Close();
             sqlconn = null;
-            Response.Redirect("mycomment.aspx");
+            Response.Redirect("articleDetail.aspx");
 
         }
 
