@@ -57,9 +57,18 @@ public partial class AddLiuyan : System.Web.UI.Page
             coldrow = dtable.Rows;
             //修改操作，逐行遍历，取出各行的数据
             int n;
+
+            int Msgid;
             n = coldrow.Count;
-            drow = coldrow[n - 1];
-            String Msgid = (Convert.ToInt32(drow[0]) + 1).ToString();
+            if (n >= 1)
+            {
+                drow = coldrow[n - 1];
+                Msgid = (Convert.ToInt32(drow[0]) + 1);
+            }
+            else
+                Msgid = 1;
+
+            
             drow = ds.Tables["tabstudent"].NewRow();
             drow[0] = Msgid;
             drow[1] = TextBox2.Text;
@@ -75,8 +84,13 @@ public partial class AddLiuyan : System.Web.UI.Page
 
             sqlconn.Close();
             sqlconn = null;
-            Response.Redirect("liuyan.aspx");
+            Response.Redirect("Addliuyan.aspx");
 
         }
+    }
+
+    protected void GridView1_SelectedIndexChanged(object sender, EventArgs e)
+    {
+
     }
 }

@@ -58,6 +58,99 @@
                 </div>
             </div>
         </div>
+       
+
+
+
+
+         <asp:Panel ID="Panel2" runat="server" Height="24px" HorizontalAlign="Center">
+           
+
+              <div style="text-align:center; height: 296px;" >
+    
+        评论内容：<br />
+        <asp:TextBox ID="TextBox1" runat="server" Height="177px" TextMode="MultiLine" Width="794px"></asp:TextBox>
+        <br />
+        <br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                  <asp:Label ID="Label6" runat="server" Text="111" Visible="False"></asp:Label>
+        <asp:Panel ID="Panel3" runat="server" Height="31px" HorizontalAlign="Center">
+            <asp:Button ID="Button1" runat="server" Height="28px" Text="确定" Width="57px" OnClick="Button1_Click" />
+        </asp:Panel>
+        <br />
+        <br />
+        <br />
+        <br />
+
+ 评论：<asp:GridView ID="GridView1" runat="server" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" CellPadding="4" DataKeyNames="Cmt_ID" DataSourceID="SqlDataSource1" ForeColor="#333333" GridLines="None" OnSelectedIndexChanged="GridView1_SelectedIndexChanged" HorizontalAlign="Center">
+            <AlternatingRowStyle BackColor="White" />
+            <Columns>
+                
+                <asp:BoundField DataField="Cmt_UserName"  SortExpression="Cmt_UserName" />
+                <asp:HyperLinkField  Text="：" />
+                <asp:BoundField DataField="Cmt_Content"  SortExpression="Cmt_Content" ItemStyle-Width="200px">
+                
+<ItemStyle Width="200px"></ItemStyle>
+                </asp:BoundField>
+                
+                <asp:BoundField DataField="Cmt_Time"  SortExpression="Cmt_Time" ItemStyle-Width="100px" ItemStyle-Height="100" >
+               
+               
+<ItemStyle Height="100px" Width="100px"></ItemStyle>
+                </asp:BoundField>
+               
+               
+                  <asp:HyperLinkField  Text="回复" DataNavigateUrlFields="Cmt_ID" DataNavigateUrlFormatString="commentreply.aspx?Cmt_ID={0}" ItemStyle-Width="100px" >
+<ItemStyle Width="100px"></ItemStyle>
+                </asp:HyperLinkField>
+             <asp:BoundField DataField="reply"  SortExpression="reply" ItemStyle-Width="200px" >
+<ItemStyle Width="200px"></ItemStyle>
+                </asp:BoundField>
+                <asp:BoundField DataField="reply_time"  SortExpression="reply_time" ItemStyle-Width="100px">
+
+<ItemStyle Width="100px"></ItemStyle>
+                </asp:BoundField>
+
+            </Columns>
+          
+            
+            
+            <EditRowStyle BackColor="#2461BF" />
+            <FooterStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
+            <HeaderStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
+            <PagerStyle BackColor="#2461BF" ForeColor="White" HorizontalAlign="Center" />
+            <RowStyle BackColor="#EFF3FB" />
+            <SelectedRowStyle BackColor="#D1DDF1" Font-Bold="True" ForeColor="#333333" />
+            <SortedAscendingCellStyle BackColor="#F5F7FB" />
+            <SortedAscendingHeaderStyle BackColor="#6D95E1" />
+            <SortedDescendingCellStyle BackColor="#E9EBEF" />
+            <SortedDescendingHeaderStyle BackColor="#4870BE" />
+          
+            
+            
+        </asp:GridView>
+        </div>
+        <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:BlogConnectionString %>" SelectCommand="SELECT * FROM [Comments] WHERE ([ArticleID] = @ArticleID) ORDER BY [Cmt_Time] DESC">
+            <SelectParameters>
+                <asp:ControlParameter ControlID="Label6" Name="ArticleID" PropertyName="Text" Type="Int32" />
+            </SelectParameters>
+        </asp:SqlDataSource>
+        </asp:Panel>
+
+         <footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
+                <br>
+                <p class="copyright text-muted">
+                    Copyright &copy; zl 2017
+                    <br>
+                    Theme by <a href="">zl</a>
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
     </form>
         <a href="#" id="backToTop" class="cd-top">Top</a>
     <script>
@@ -78,19 +171,6 @@
             var element = layui.element;
         });
     </script>
-    <footer>
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
-                <br>
-                <p class="copyright text-muted">
-                    Copyright &copy; zl 2017
-                    <br>
-                    Theme by <a href="">zl</a>
-                </p>
-            </div>
-        </div>
-    </div>
-</footer>
+   
 </body>
 </html>
