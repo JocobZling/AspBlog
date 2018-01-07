@@ -119,9 +119,9 @@ public partial class userIndex : System.Web.UI.Page
         {
             Response.Redirect("index.aspx");
         }
-        else if (Session["use"] == "用户")
+        else if (Session["use"] == "管理员")
         {
-            Response.Redirect("manageIndex.aspx");
+            Response.Redirect("index.aspx");
         }
     }
     public bool images()

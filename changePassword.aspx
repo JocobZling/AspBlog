@@ -57,7 +57,7 @@
                 <td>
 &nbsp; 
                     <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="确认"/>
-                &nbsp;<asp:Button ID="Button2" runat="server" Text="返回" CausesValidation="False" OnClick="Button2_Click" />
+                &nbsp;<asp:Button ID="Button2" runat="server" Text="返回" CausesValidation="False" OnClick="Button2_Click" style="height: 21px" />
                 </td>
                 <td>&nbsp;</td>
             </tr>

@@ -5,14 +5,14 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title>博客首页</title>
-    <link rel="stylesheet" href="layui/css/layui.css">
-    <link href="style/index.css" rel="stylesheet">
-    <script src="layui/layui.js"></script>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="bootstrap-3.3.7-dist/css/bootstrap.css" rel="stylesheet">
-    <script src="bootstrap-3.3.7-dist/js/jquery-3.2.1.js"></script>
-    <script src="bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
-
+    <link rel="stylesheet" href="layui/css/layui.css"/>
+    <link href="style/index.css" rel="stylesheet"/>
+    <script type="text/javascript" src="layui/layui.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <link href="bootstrap-3.3.7-dist/css/bootstrap.css" rel="stylesheet"/>
+    <script type="text/javascript" src="bootstrap-3.3.7-dist/js/jquery-3.2.1.js"></script>
+    <script type="text/javascript" src="bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+   
 </head>
 <body>
     <form id="form1" runat="server">
@@ -26,13 +26,22 @@
                     <li class="layui-nav-item"><a href="AddLiuyan.aspx">留言板</a></li>
                     <li class="layui-nav-item"><a href="">联系我们</a></li>
                     <li class="layui-nav-item">
-                    <asp:LinkButton ID="LinkButton1" runat="server" PostBackUrl="~/loginUp.aspx">登录</asp:LinkButton></li>
+                        
+                    <asp:LinkButton ID="LinkButton1" runat="server" Text="未登录" style="TEXT-DECORATION: none"></asp:LinkButton>
+                        <dl class="layui-nav-child">
+                            <dd><asp:LinkButton ID="LinkButton5" runat="server" PostBackUrl="~/manageIndex.aspx" Text="管理首页" Visible="false"></asp:LinkButton></dd>
+                            <dd><asp:LinkButton ID="LinkButton2" runat="server" PostBackUrl="~/loginUp.aspx" Text="登录"></asp:LinkButton></dd>
+                            <dd><asp:LinkButton ID="LinkButton3" runat="server" PostBackUrl="~/changePassword.aspx" Text="修改密码" Visible="false"></asp:LinkButton></dd>
+                           <dd> <asp:LinkButton ID="LinkButton4" runat="server" PostBackUrl="~/index.aspx" Text="退出" Visible="false"  OnClick="LinkButton4_Click"></asp:LinkButton></dd>                          
+                        </dl>
+                    </li>
                 </ul>
             </div>
         </div>
          </header>
         <div class="logo">
             <img src="image/logo2.png" />
+            
         </div>
         <!--轮播图-->
         <div class="container">
