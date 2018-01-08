@@ -34,4 +34,10 @@ public partial class manageIndex : System.Web.UI.Page
         sqlconn.Close();
         sqlconn = null;
     }
+protected void LinkButton2_Click(object sender, EventArgs e)
+    {
+        Session.Remove("use");
+        Session.Remove("sno");
+        Response.Redirect("~/index.aspx");           
+    }
 }

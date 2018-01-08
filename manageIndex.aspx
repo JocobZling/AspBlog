@@ -24,7 +24,7 @@
                     <li class="layui-nav-item "><a href="addArticle.aspx">添加文章</a></li>
                     <li class="layui-nav-item"><a href="">管理留言</a></li>
                     <li class="layui-nav-item">
-                        <asp:LinkButton ID="LinkButton2" runat="server" PostBackUrl="~/index.aspx">退出</asp:LinkButton></li>
+                  <asp:LinkButton ID="LinkButton2" runat="server" OnClick="LinkButton2_Click">退出</asp:LinkButton></li>
                 </ul>
             </div>
         </div>
