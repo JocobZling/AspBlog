@@ -15,6 +15,8 @@ public partial class userIndex : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
+        if (Session["use"] == null)
+            Response.Redirect("~/loginUp.aspx");
         if (!IsPostBack)
         {
             /*Calendar1.Visible = false;*/

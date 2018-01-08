@@ -6,18 +6,25 @@
  
   /*  void Application_Start(object sender, EventArgs e)
     {
-    string strConnection = WebConfigurationManager.ConnectionStrings["LocalSqlServer"].ConnectionString.ToString();
+        string strConnection = WebConfigurationManager.ConnectionStrings["LocalSqlServer"].ConnectionString.ToString();
         SqlConnection Connection = new SqlConnection(strConnection);
         String strSQL = "select ViewNum from Articles where ArticleID=@ArticleID";
         SqlCommand command = new SqlCommand(strSQL, Connection);
         command.Parameters.AddWithValue("@ArticleID", 3);
+        try
+        {
+            Connection.Open();
 
-        Connection.Open();
-        int count = (int)command.ExecuteScalar();
-        Console.Write("%d", count);
-        Application["total"] = count;
-        Application["onLine"] = 0;
+            int count = (int)command.ExecuteScalar();
+            Console.Write("%d", count);
+            Application["total"] = count;
+            Application["onLine"] = 0;
 
+        }
+       catch(Exception ex)
+        {
+            Console.WriteLine(ex.Message);
+        }
     }
 
     void Application_End(object sender, EventArgs e)

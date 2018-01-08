@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
@@ -9,21 +10,19 @@ using System.Data.SqlClient;
 using System.Web.UI.HtmlControls;
 using System.Text.RegularExpressions;
 
-public partial class usersearchArticle : System.Web.UI.Page
+public partial class userSearch3 : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
         string strConnection = WebConfigurationManager.ConnectionStrings["LocalSqlServer"].ConnectionString.ToString();
         SqlConnection Connection = new SqlConnection(strConnection);
-        String strSQL = "Select * From Articles";
+        String strSQL = "Select * From Articles where Tag_ID=3";
         SqlCommand command = new SqlCommand(strSQL, Connection);
         Connection.Open();
         SqlDataReader sqlDataReader = command.ExecuteReader();
         while (sqlDataReader.Read())
         {
-
             int id = sqlDataReader.GetInt32(0);
-            //Session["articleID"] = id.ToString();//新增
             String title = sqlDataReader.GetString(1);
             String content = sqlDataReader.GetString(2);
             String publishTime = sqlDataReader.GetString(3);
@@ -75,7 +74,6 @@ public partial class usersearchArticle : System.Web.UI.Page
 
         //command.Parameters.AddWithValue("@Title", "你好");
 
-        
         Connection.Open();
         SqlDataReader sqlDataReader = command.ExecuteReader();
         while (sqlDataReader.Read())
@@ -87,7 +85,7 @@ public partial class usersearchArticle : System.Web.UI.Page
             int num = sqlDataReader.GetInt32(4);
             String type = getType(num);
             int viewNum = sqlDataReader.GetInt32(5);
-            String str = id.ToString() +","+ title + "," + content + "," + publishTime + "," + num + "," + type + "," + viewNum.ToString();
+            String str = id.ToString() + "," + title + "," + content + "," + publishTime + "," + num + "," + type + "," + viewNum.ToString();
 
             Label label1 = new Label();
             Label label2 = new Label();
@@ -99,14 +97,14 @@ public partial class usersearchArticle : System.Web.UI.Page
             HtmlGenericControl br2 = new HtmlGenericControl("br");
             HtmlGenericControl hr = new HtmlGenericControl("hr");
             String url = "articleDetail.aspx?id=" + id;
-            a.Attributes.Add("href", string.Format("articleDetail.aspx?id={0}",id.ToString()));
+            a.Attributes.Add("href", string.Format("articleDetail.aspx?id={0}", id.ToString()));
             a.InnerText = String.Format("{0}", title.ToString());
             a.Style["font-size"] = "20px";
             a.Style["color"] = "Black";
             a.Style["text-decoration"] = "none";
             label1.Text = getCotent(content);
             label2.Text = "发表日期:" + publishTime.ToString();
-            label3.Text ="类型:"+type.ToString();
+            label3.Text = "类型:" + type.ToString();
             label4.Text = "             浏览量:" + viewNum.ToString();
             label2.Style["color"] = "grey";
             label3.Style["color"] = "grey";
@@ -145,10 +143,10 @@ public partial class usersearchArticle : System.Web.UI.Page
         string pattern = "<p>[^<]*</p>";
         string result = "";
         foreach (Match match in Regex.Matches(contentHtml, pattern))
-            result+=match.Value;
+            result += match.Value;
         Regex replaceSpace = new Regex(@"</?[p|P][^>]*>", RegexOptions.IgnoreCase);
-        result= replaceSpace.Replace(result, "");
-        string Result = result.Replace("<p>","").Replace("<p></p>", "<span>").Replace("&nbsp;","");
-        return Result.Substring(0, 200)+"......";
+        result = replaceSpace.Replace(result, "");
+        string Result = result.Replace("<p>", "").Replace("<p></p>", "<span>").Replace("&nbsp;", "");
+        return Result.Substring(0, 200) + "......";
     }
 }

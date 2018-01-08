@@ -21,10 +21,10 @@
             <div class="main">
                 <a href="index.aspx"><span class="logoText">Blog</span></a>
                 <ul class="layui-nav">
-                    <li class="layui-nav-item layui-this"><a href="index.aspx">首页</a></li>
-                    <li class="layui-nav-item"><a href="usersearchArticle.aspx">博文</a></li>
-                    <li class="layui-nav-item"><a href="AddLiuyan.aspx">留言板</a></li>
-                    <li class="layui-nav-item"><a href="">联系我们</a></li>
+                    <li class="layui-nav-item layui-this"><a style="text-decoration: none;" href="index.aspx">首页</a></li>
+                    <li class="layui-nav-item"><a style="text-decoration: none;" href="usersearchArticle.aspx">博文</a></li>
+                    <li class="layui-nav-item"><a style="text-decoration: none;" href="AddLiuyan.aspx">留言板</a></li>
+                    <li class="layui-nav-item"><a style="text-decoration: none;" href="https://github.com/JocobZling/AspBlog">联系我们</a></li>
                     <li class="layui-nav-item">
                         
                     <asp:LinkButton ID="LinkButton1" runat="server" Text="未登录" style="TEXT-DECORATION: none"></asp:LinkButton>
@@ -90,7 +90,7 @@
                         <img src="image/Me.jpg" alt="">
                         <div class="caption">
                             <h3>徐青青</h3>
-                            <p>...</p>
+                            <p>本组组长负责登录和有关登录的所有内容</p>
                         </div>
                     </div>
                 </div>
@@ -99,7 +99,7 @@
                         <img src="image/Me.jpg" alt="">
                         <div class="caption">
                             <h3>张玲</h3>
-                            <p>...</p>
+                            <p>本组负责样式及发表文章的某人</p>
                         </div>
                     </div>
                 </div>
@@ -108,41 +108,41 @@
                         <img src="image/Me.jpg" alt="">
                         <div class="caption">
                             <h3>黄子春</h3>
-                            <p>...</p>
+                            <p>本组负责有关评论和留言功能的小美女</p>
                         </div>
                     </div>
                 </div>
                 <div class="col-sm-6 col-md-4">
                     <div class="thumbnail">
-                        <img src="image/Me.jpg" alt="...">
+                        <img src="image/Me.jpg" alt="">
                         <div class="caption">
                             <h3>纪华婷</h3>
-                            <p>...</p>
+                            <p>本组负责有关搜索功能的小美女</p>
                         </div>
                     </div>
                 </div>
                 <div class="col-sm-6 col-md-4">
                     <div class="thumbnail">
-                        <img src="image/Me.jpg" alt="...">
+                        <img src="image/Me.jpg" alt="">
                         <div class="caption">
                             <h3>章萌</h3>
-                            <p>...</p>
+                            <p>本组负责有关管理员相关功能的小美女</p>
                         </div>
                     </div>
                 </div>
                 <div class="col-sm-6 col-md-4">
                     <div class="thumbnail">
-                        <img src="image/Me.jpg" alt="...">
+                        <img src="image/Me.jpg" alt="">
                         <div class="caption">
                             <h3>李文龙</h3>
-                            <p>...</p>
+                            <p>本组。。传说</p>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </form>
-    <a href="#" id="backToTop" class="cd-top">Top</a>
+    <a href="#" style="text-decoration: none;"  id="backToTop" class="cd-top">Top</a>
     <script>
         let a = document.querySelector("#backToTop");
         let header = document.querySelector("header").offsetHeight;
@@ -169,7 +169,7 @@
                 <p class="copyright text-muted">
                     Copyright &copy; zl 2017
                     <br>
-                    Theme by <a href="">zl</a>
+                    Theme by <a href="https://github.com/JocobZling/AspBlog">zl</a>
                 </p>
             </div>
         </div>

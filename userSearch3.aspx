@@ -1,6 +1,6 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="usersearchArticle.aspx.cs" Inherits="usersearchArticle" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="userSearch3.aspx.cs" Inherits="userSearch3" %>
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
@@ -17,22 +17,22 @@
 <body>
     <form id="form1" runat="server">
         <header>
-        <div class="layui-header header">
-            <div class="main">
-                <a href="index.aspx"><span class="logoText">Blog</span></a>
-                <ul class="layui-nav">
-                    <li class="layui-nav-item"><a style="text-decoration: none;" href="index.aspx">首页</a></li>
-                    <li class="layui-nav-item layui-this"><a  style="text-decoration: none;" href="usersearchArticle.aspx">博文</a></li>
-                    <li class="layui-nav-item"><a style="text-decoration: none;" href="AddLiuyan.aspx">留言板</a></li>
-                    <li class="layui-nav-item"><a style="text-decoration: none;" href="https://github.com/JocobZling/AspBlog">联系我们</a></li>
-                    <li class="layui-nav-item">
-                        
-                    <asp:LinkButton ID="LinkButton1" runat="server" Text="未登录" style="TEXT-DECORATION: none"></asp:LinkButton>
-                    </li>
-                </ul>
+            <div class="layui-header header">
+                <div class="main">
+                    <a href="index.aspx"><span class="logoText">Blog</span></a>
+                    <ul class="layui-nav">
+                        <li class="layui-nav-item"><a style="text-decoration: none;" href="index.aspx">首页</a></li>
+                        <li class="layui-nav-item layui-this"><a style="text-decoration: none;" href="usersearchArticle.aspx">博文</a></li>
+                        <li class="layui-nav-item"><a style="text-decoration: none;" href="AddLiuyan.aspx">留言板</a></li>
+                        <li class="layui-nav-item"><a style="text-decoration: none;" href="https://github.com/JocobZling/AspBlog">联系我们</a></li>
+                        <li class="layui-nav-item">
+
+                            <asp:LinkButton ID="LinkButton1" runat="server" Text="未登录" Style="text-decoration: none"></asp:LinkButton>
+                        </li>
+                    </ul>
+                </div>
             </div>
-        </div>
-         </header>
+        </header>
         <div class="container">
             <div class="row">
                 <span class="layui-icon col-lg-2" style="font-size: 25px; color: grey">搜索 &#xe615</span>
@@ -76,7 +76,7 @@
                                     <asp:HyperLink Style="text-decoration: none;" ID="HyperLink2" runat="server" NavigateUrl="~/userSearch2.aspx">情感</asp:HyperLink></dd>
 
                                 <dd>
-                                    <asp:HyperLink Style="text-decoration: none;" ID="HyperLink3" runat="server" NavigateUrl="~/userSearch3.aspx">生活</asp:HyperLink></dd>
+                                    <asp:HyperLink Style="text-decoration: none;" class="layui-this" ID="HyperLink3" runat="server" NavigateUrl="~/userSearch3.aspx">生活</asp:HyperLink></dd>
 
                             </dl>
                         </li>
@@ -86,8 +86,8 @@
         </div>
         <div class="space80"></div>
         <footer>
-           <a href="#" style="text-decoration: none;" id="backToTop" class="cd-top">Top</a>
-    <script>
+            <a href="#" style="text-decoration: none;" id="backToTop" class="cd-top">Top</a>
+            <script>
                     let a = document.querySelector("#backToTop");
                     let header = document.querySelector("header").offsetHeight;
                     console.log(header);
@@ -104,20 +104,20 @@
                     layui.use('element', function () {
                         var element = layui.element;
                     });
-    </script>        
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
-                <br>
-                <p class="copyright text-muted">
-                    Copyright &copy; zl 2017
+            </script>
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
+                        <br>
+                        <p class="copyright text-muted">
+                            Copyright &copy; zl 2017
                     <br>
-                    Theme by <a href="">zl</a>
-                </p>
+                            Theme by <a href="">zl</a>
+                        </p>
+                    </div>
+                </div>
             </div>
-        </div>
-    </div>
-</footer>
+        </footer>
     </form>
 </body>
 </html>

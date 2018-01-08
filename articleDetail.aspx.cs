@@ -31,6 +31,7 @@ public partial class articleDetail : System.Web.UI.Page
         {
             int num = sqlDataReader.GetInt32(4);
             String type = getType(num);
+<<<<<<< HEAD
            
 
             Label1.Text = sqlDataReader.GetString(1) + "";
@@ -38,6 +39,13 @@ public partial class articleDetail : System.Web.UI.Page
             Label3.Text = type + "";
             Label4.Text = sqlDataReader.GetString(3) + "";
    // 新增       // Label5.Text += Application["total"].ToString() + "";
+=======
+            Label1.Text += sqlDataReader.GetString(1) + "";
+            Label2.Text += "zl";
+            Label3.Text += type + "";
+            Label4.Text += sqlDataReader.GetString(3) + "";
+          //  Label5.Text += Application["total"].ToString() + "";
+>>>>>>> 08cc26522f1c5b7408ecddb395d325b5610c949e
             Literal innerHtml = new Literal();
             innerHtml.Text = sqlDataReader.GetString(2) + "";
             Panel1.Controls.Add(innerHtml);
