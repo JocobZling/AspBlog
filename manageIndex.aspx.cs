@@ -13,7 +13,7 @@ public partial class manageIndex : System.Web.UI.Page
     protected void Page_Load(object sender, EventArgs e)
     {
         if (Session["use"] == null)
-            Response.Redirect("~/loginUp.aspx");
+        Response.Redirect("~/loginUp.aspx");
     }
     protected void GridView1_SelectedIndexChanged(object sender, EventArgs e)
     {
