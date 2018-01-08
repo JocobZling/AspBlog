@@ -65,6 +65,11 @@
                             <a href="javascript:;">分类</a>
                             <dl class="layui-nav-child">
                                 <dd>
+
+                                    <asp:HyperLink Style="text-decoration: none;" ID="HyperLink4" runat="server" NavigateUrl="~/usersearchArticle.aspx">全部</asp:HyperLink>
+
+                                </dd>
+                                <dd>
                                     <asp:HyperLink Style="text-decoration: none;" ID="HyperLink1" runat="server" NavigateUrl="~/userSearch1.aspx">科技</asp:HyperLink></dd>
 
                                 <dd>

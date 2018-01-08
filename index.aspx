@@ -99,7 +99,7 @@
                         <img src="image/Me.jpg" alt="">
                         <div class="caption">
                             <h3>张玲</h3>
-                            <p>本组负责样及发表文章的某人</p>
+                            <p>本组负责样式及发表文章的某人</p>
                         </div>
                     </div>
                 </div>
