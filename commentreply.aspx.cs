@@ -7,6 +7,7 @@ using System.Web.UI.WebControls;
 using System.Data.SqlClient;
 using System.Configuration;
 using System.Data;
+using System.Web.UI.HtmlControls;
 public partial class commentreply : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
@@ -65,7 +66,14 @@ public partial class commentreply : System.Web.UI.Page
 
             sqlconn.Close();
             sqlconn = null;
-            Response.Redirect("articleDetail.aspx");
+            //Response.Redirect("articleDetail.aspx");
+            HtmlGenericControl a = new HtmlGenericControl("a");
+            String ArticleID = Session["articleID"].ToString();
+           
+
+
+            String url = "articleDetail.aspx?id=" + ArticleID;
+            Response.Redirect(string.Format("{0}", url.ToString()));
 
         }
 
