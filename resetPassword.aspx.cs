@@ -43,6 +43,8 @@ public partial class resetPassword : System.Web.UI.Page
            command2.ExecuteNonQuery();
        }
         Connection.Close();
+        Session.Remove("no");
+        Session.Remove("gai");
         Response.Write("<script>alert('重置密码成功！请重新登录。');location.href='loginUp.aspx';</script>");
     }
 
