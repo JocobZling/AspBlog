@@ -12,8 +12,8 @@ public partial class addArticle : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-        if (Session["use"] == null)
-            Response.Redirect("~/loginUp.aspx");
+        //if (Session["use"] == null)
+         //   Response.Redirect("~/loginUp.aspx");
     }
 
     protected void Button1_Click(object sender, EventArgs e)
