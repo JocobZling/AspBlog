@@ -18,12 +18,12 @@ public partial class searchAriticle : System.Web.UI.Page
         Label1.Text = "";
         Label2.Text = "";
         String s = TextBox1.Text;
-        string sqlconnstr = ConfigurationManager.ConnectionStrings["connectionString"].ConnectionString;
+        string sqlconnstr = ConfigurationManager.ConnectionStrings["BlogConnectionString"].ConnectionString;
         SqlConnection sqlconn = new SqlConnection(sqlconnstr);
         SqlCommand sqlcmd = new SqlCommand();
         sqlcmd.Connection = sqlconn;
         sqlconn.Open();
-        sqlcmd.CommandText = "select ArticleID,Title,PublishedTime,Tag_ID,ViewNum,imgUrl from Article where Title=@Title";
+        sqlcmd.CommandText = "select ArticleID,Title,PublishedTime,Tag_ID,ViewNum,imgUrl from Articles where Title=@Title";
         sqlcmd.Parameters.AddWithValue("@Title",s);
         SqlDataReader reader = sqlcmd.ExecuteReader();
         if (reader.Read() == true)
