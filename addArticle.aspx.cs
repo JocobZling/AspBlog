@@ -12,14 +12,14 @@ public partial class addArticle : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-
+        if (Session["use"] == null)
+            Response.Redirect("~/loginUp.aspx");
     }
 
     protected void Button1_Click(object sender, EventArgs e)
     {
         string strConnection = WebConfigurationManager.ConnectionStrings["LocalSqlServer"].ConnectionString.ToString();
         SqlConnection Connection = new SqlConnection(strConnection);
-
         String strSQL = "insert into Articles(Title,A_Content,PublishedTime,Tag_ID,ViewNum,imgUrl)" +
             "values(@Title,@A_Content,@PublishedTime,@Tag_ID,@ViewNum,@imgUrl)";
         SqlCommand command = new SqlCommand(strSQL, Connection);

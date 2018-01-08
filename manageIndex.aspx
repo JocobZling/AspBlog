@@ -12,6 +12,7 @@
     <link href="bootstrap-3.3.7-dist/css/bootstrap.css" rel="stylesheet">
     <script src="bootstrap-3.3.7-dist/js/jquery-3.2.1.js"></script>
     <script src="bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+
 </head>
 <body>
     <form id="form1" runat="server">
@@ -24,17 +25,12 @@
                     <li class="layui-nav-item "><a href="addArticle.aspx">添加文章</a></li>
                     <li class="layui-nav-item"><a href="">管理留言</a></li>
                     <li class="layui-nav-item">
-                  <asp:LinkButton ID="LinkButton2" runat="server" OnClick="LinkButton2_Click">退出</asp:LinkButton></li>
+
+                        <asp:LinkButton ID="LinkButton2" runat="server" OnClick="LinkButton2_Click">退出</asp:LinkButton></li>
                 </ul>
             </div>
         </div>
        </header>
-        <script>
-            layui.use('element', function () {
-                var element = layui.element;
-            });
-        </script>
-
         <asp:GridView ID="GridView1" runat="server" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" DataSourceID="SqlDataSource1" SelectedIndex="0">
              <Columns>
                 <asp:CommandField ShowSelectButton="True" HeaderText="管理" />
@@ -47,6 +43,12 @@
         </asp:GridView>
 
         <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:BlogConnectionString %>" SelectCommand="SELECT [Title], [A_Content], [PublishedTime] FROM [Articles]"></asp:SqlDataSource>
+
     </form>
+    <script>
+        layui.use('element', function () {
+            var element = layui.element;
+        });
+    </script>
 </body>
 </html>

@@ -1,0 +1,99 @@
+﻿header{
+    height:59px;
+}
+.header {
+    height: 59px;
+    border-bottom: 1px solid #404553;
+    background-color: #009688;
+}
+
+.main {
+    width: 1140px;
+    margin: 0 auto;
+}
+
+.logoText {
+    font-family: 'Monotype Corsiva';
+    font-size: 40px;
+    position: relative;
+    display: inline-block;
+    vertical-align: middle;
+    margin: 0 20px;
+    color:white;
+}
+
+a {
+    color: #333;
+    text-decoration: none;
+}
+
+.header .layui-nav {
+    position: absolute;
+    right: 0;
+    top: 0;
+    padding: 0;
+    background: none;
+}
+
+.logo img {
+    margin: 10px;
+    margin-left: 45%;
+    height: 100px;
+    width: 125px;
+}
+
+.layui-header {
+    z-index: 1000;
+}
+
+.layui-nav .layui-nav-item {
+    position: relative;
+    display: inline-block;
+    vertical-align: middle;
+    line-height: 60px;
+}
+
+.layui-nav * {
+    font-size: 14px;
+}
+
+.header .layui-nav .layui-nav-item {
+    margin: 0 20px;
+}
+
+#carousel-example-generic {
+    margin-top: 10px;
+    margin-bottom: 40px;
+    height: 500px;
+}
+
+.carousel-inner img {
+    height: 500px;
+    width: 100%;
+}
+
+#backToTop {
+    display: none;
+    position: fixed;
+    bottom: 20px;
+    right: 30px;
+    z-index: 99;
+    border: none;
+    outline: none;
+    background-color: #009688;
+    color: white;
+    cursor: pointer;
+    padding: 15px;
+    border-radius: 10px;
+}
+
+#backToTop:hover {
+   background-color: #555;
+}
+a {
+    color: #e86256;
+    text-decoration: none;
+}
+h3{
+    text-align:center;
+}

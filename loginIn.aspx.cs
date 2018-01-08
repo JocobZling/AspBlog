@@ -89,7 +89,7 @@ public partial class loginIn : System.Web.UI.Page
         MailMessage message = new MailMessage(from, to);
         message.Subject = "激活账号";
         Session.Timeout = 3;
-        message.Body = "亲爱的用户:" + TextBox1.Text + " 您好!激活账号访问以下链接:'http://localhost:49437/activate.aspx' 请您务必在3分钟内激活该帐号，否则该激活链接将失效。";
+        message.Body = "亲爱的用户:" + TextBox1.Text + " 您好!激活账号访问以下链接:'http://localhost:1166/activate.aspx' 请您务必在3分钟内激活该帐号，否则该激活链接将失效。";
         message.IsBodyHtml = true;//是否以HTML格式发送          
         try
         {
