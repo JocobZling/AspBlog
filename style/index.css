@@ -97,3 +97,6 @@ a {
 h3{
     text-align:center;
 }
+.caption p {
+    text-align: center;!important
+}
