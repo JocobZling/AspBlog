@@ -18,7 +18,6 @@ public partial class index : System.Web.UI.Page
                 LinkButton2.Text = "个人信息";
                 LinkButton3.Visible = true;
                 LinkButton4.Visible = true;
-
             }
             else if (Session["use"].ToString() == "管理员")
             {
@@ -35,6 +34,8 @@ public partial class index : System.Web.UI.Page
     {
         Session.Remove("use");
         Session.Remove("sno");
+        Session.Remove("password");
+        LinkButton5.Visible = false;
         LinkButton1.Text = "未登录";
         LinkButton2.Text = "登录";
         LinkButton2.PostBackUrl = "~/loginUp.aspx";

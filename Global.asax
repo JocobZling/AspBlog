@@ -4,20 +4,27 @@
 <%@ Import Namespace="System.Web.Configuration" %>
 <script runat="server">
  
-    void Application_Start(object sender, EventArgs e)
+  /*  void Application_Start(object sender, EventArgs e)
     {
-    string strConnection = WebConfigurationManager.ConnectionStrings["LocalSqlServer"].ConnectionString.ToString();
+        string strConnection = WebConfigurationManager.ConnectionStrings["LocalSqlServer"].ConnectionString.ToString();
         SqlConnection Connection = new SqlConnection(strConnection);
         String strSQL = "select ViewNum from Articles where ArticleID=@ArticleID";
         SqlCommand command = new SqlCommand(strSQL, Connection);
         command.Parameters.AddWithValue("@ArticleID", 3);
+        try
+        {
+            Connection.Open();
 
-        Connection.Open();
-        int count = (int)command.ExecuteScalar();
-        Console.Write("%d", count);
-        Application["total"] = count;
-        Application["onLine"] = 0;
+            int count = (int)command.ExecuteScalar();
+            Console.Write("%d", count);
+            Application["total"] = count;
+            Application["onLine"] = 0;
 
+        }
+       catch(Exception ex)
+        {
+            Console.WriteLine(ex.Message);
+        }
     }
 
     void Application_End(object sender, EventArgs e)
@@ -54,6 +61,6 @@
         // 注意: 只有在 Web.config 文件中的 sessionstate 模式设置为
         // InProc 时，才会引发 Session_End 事件。如果会话模式设置为 StateServer
         // 或 SQLServer，则不引发该事件。
-    }
+    }*/
 
 </script>
