@@ -4,7 +4,7 @@
 <%@ Import Namespace="System.Web.Configuration" %>
 <script runat="server">
  
-    void Application_Start(object sender, EventArgs e)
+  /*  void Application_Start(object sender, EventArgs e)
     {
     string strConnection = WebConfigurationManager.ConnectionStrings["LocalSqlServer"].ConnectionString.ToString();
         SqlConnection Connection = new SqlConnection(strConnection);
@@ -54,6 +54,6 @@
         // 注意: 只有在 Web.config 文件中的 sessionstate 模式设置为
         // InProc 时，才会引发 Session_End 事件。如果会话模式设置为 StateServer
         // 或 SQLServer，则不引发该事件。
-    }
+    }*/
 
 </script>

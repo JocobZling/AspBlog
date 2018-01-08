@@ -41,7 +41,7 @@
          </header>
         <div class="logo">
             <img src="image/logo2.png" />
-            
+                        
         </div>
         <!--轮播图-->
         <div class="container">

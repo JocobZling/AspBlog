@@ -69,10 +69,9 @@
                     </td>
                 </tr>
                 <tr>
-                    <td class="auto-style5">收件人：</td>
+                    <td class="auto-style5">&nbsp;</td>
                     <td class="auto-style6">
-                        <asp:TextBox ID="TextBox3" runat="server"></asp:TextBox>
-                    </td>
+                        &nbsp;</td>
                 </tr>
                 <tr>
                     <td class="auto-style4">留言：</td>
@@ -101,10 +100,7 @@
 
         <div>
     
-        <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:BlogConnectionString %>" SelectCommand="SELECT * FROM [Messages] WHERE ([Msg_ToUser] = @Msg_ToUser) ORDER BY [AddDate] DESC">
-            <SelectParameters>
-                <asp:ControlParameter ControlID="Label1" Name="Msg_ToUser" PropertyName="Text" Type="String" />
-            </SelectParameters>
+        <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:BlogConnectionString %>" SelectCommand="SELECT * FROM [Messages] ORDER BY [AddDate] DESC">
         </asp:SqlDataSource>
         <asp:GridView ID="GridView1" runat="server" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" CellPadding="4" DataKeyNames="Msg_ID" DataSourceID="SqlDataSource1" ForeColor="#333333" GridLines="None" OnSelectedIndexChanged="GridView1_SelectedIndexChanged" HorizontalAlign="Center">
             <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
@@ -151,7 +147,6 @@
             <SortedDescendingHeaderStyle BackColor="#6F8DAE" />
         </asp:GridView>
     
-        <asp:Label ID="Label1" runat="server" Text="11" Visible="False"></asp:Label>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         <br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;

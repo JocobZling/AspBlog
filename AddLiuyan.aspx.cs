@@ -19,15 +19,14 @@ public partial class AddLiuyan : System.Web.UI.Page
     }
     protected void Button1_Click(object sender, EventArgs e)
     {
-        string aid = "111";//Session["ArticleID"].ToString();
-        string name = "111";//Session["UserName"].ToString();
+        
+        string name =Session["sno"].ToString();
 
         if (TextBox2.Text == "")
             Response.Write("<script>alert('标题不能为空!')</script>");
         else if (TextBox1.Text == "")
             Response.Write("<script>alert('留言不能为空!')</script>");
-        else if (TextBox3.Text == "")
-            Response.Write("<script>alert('收件人不能为空!')</script>");
+        
         else
         {
 
@@ -75,8 +74,9 @@ public partial class AddLiuyan : System.Web.UI.Page
             drow[2] = TextBox1.Text;
             drow[3] = name;
             drow[4] = System.DateTime.Now.ToString();
-            drow[7] = TextBox3.Text;
-
+            drow[7] = "";
+           
+            
             ds.Tables["tabstudent"].Rows.Add(drow);
 
             //提交更新

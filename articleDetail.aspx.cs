@@ -8,17 +8,22 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Web.Configuration;
 using System.Configuration;
-
+using System.Web.UI.HtmlControls;
 public partial class articleDetail : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
+        
         string strConnection = WebConfigurationManager.ConnectionStrings["BlogConnectionString"].ConnectionString.ToString();
         SqlConnection Connection = new SqlConnection(strConnection);
         String strSQL = "select * from Articles where ArticleID=@ArticleID";
         SqlCommand command = new SqlCommand(strSQL, Connection);
         string id = getUrl();
         command.Parameters.AddWithValue("@ArticleID", id);
+
+ Session["articleID"] = id;
+            Label6.Text = id;
+
         Connection.Open();
         SqlDataReader sqlDataReader = command.ExecuteReader();
 
@@ -26,15 +31,18 @@ public partial class articleDetail : System.Web.UI.Page
         {
             int num = sqlDataReader.GetInt32(4);
             String type = getType(num);
-            Label1.Text += sqlDataReader.GetString(1) + "";
-            Label2.Text += "zl";
-            Label3.Text += type + "";
-            Label4.Text += sqlDataReader.GetString(3) + "";
-            Label5.Text += Application["total"].ToString() + "";
+           
+
+            Label1.Text = sqlDataReader.GetString(1) + "";
+            Label2.Text = "zl";
+            Label3.Text = type + "";
+            Label4.Text = sqlDataReader.GetString(3) + "";
+   // 新增       // Label5.Text += Application["total"].ToString() + "";
             Literal innerHtml = new Literal();
             innerHtml.Text = sqlDataReader.GetString(2) + "";
             Panel1.Controls.Add(innerHtml);
         }
+
     }
     //获取类型
     public String getType(int num)
@@ -70,8 +78,9 @@ public partial class articleDetail : System.Web.UI.Page
 
     protected void Button1_Click(object sender, EventArgs e)
     {
-        string aid = "111";//Session["ArticleID"].ToString();
-        string name = "111";//Session["UserName"].ToString();
+        string aid =Session["articleID"].ToString();
+        string name =Session["sno"].ToString();
+        
 
 
 
@@ -129,11 +138,19 @@ public partial class articleDetail : System.Web.UI.Page
 
             //提交更新
             sqld.Update(ds, "tabstudent");
+            TextBox1.Text = "";
+            GridView1.DataBind();
 
             sqlconn.Close();
             sqlconn = null;
-            Response.Redirect("articleDetail.aspx");
+           // Response.Redirect("articleDetail.aspx");
+            HtmlGenericControl a = new HtmlGenericControl("a");
+            String id = Session["articleID"].ToString();
+            String url = "articleDetail.aspx?id=" + id;
+            a.Attributes.Add("href", string.Format("articleDetail.aspx?id={0}", id.ToString()));
 
+
+            
         }
     }
 }
