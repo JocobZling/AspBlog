@@ -64,7 +64,7 @@ public partial class messagereply : System.Web.UI.Page
 
             sqlconn.Close();
             sqlconn = null;
-            Response.Redirect("liuyan.aspx");
+            Response.Redirect("Addliuyan.aspx");
         }
     }
 }

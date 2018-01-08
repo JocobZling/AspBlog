@@ -59,8 +59,7 @@
             </div>
         </div>
        
-
-
+      
 
 
          <asp:Panel ID="Panel2" runat="server" Height="24px" HorizontalAlign="Center">
@@ -72,9 +71,9 @@
         <asp:TextBox ID="TextBox1" runat="server" Height="177px" TextMode="MultiLine" Width="794px"></asp:TextBox>
         <br />
         <br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                  <asp:Label ID="Label6" runat="server" Text="111" Visible="False"></asp:Label>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<asp:Label ID="Label6" runat="server" Visible="False"></asp:Label>
         <asp:Panel ID="Panel3" runat="server" Height="31px" HorizontalAlign="Center">
+            
             <asp:Button ID="Button1" runat="server" Height="28px" Text="确定" Width="57px" OnClick="Button1_Click" />
         </asp:Panel>
         <br />
@@ -136,6 +135,8 @@
             </SelectParameters>
         </asp:SqlDataSource>
         </asp:Panel>
+
+
 
          <footer>
     <div class="container">

@@ -29,6 +29,7 @@ public partial class loginUp : System.Web.UI.Page
             if ((TextBox1.Text == Dr["ID"].ToString()) & (GetMD5(TextBox2.Text.ToString()) == Dr["password"].ToString()))
             {
                 Session["sno"] = TextBox1.Text;
+                
                 Session["password"] = TextBox2.Text;
                 Session["use"] = "用户";
                 Response.Redirect("~/index.aspx");

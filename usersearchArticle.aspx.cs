@@ -21,7 +21,9 @@ public partial class usersearchArticle : System.Web.UI.Page
         SqlDataReader sqlDataReader = command.ExecuteReader();
         while (sqlDataReader.Read())
         {
+
             int id = sqlDataReader.GetInt32(0);
+            //Session["articleID"] = id.ToString();//新增
             String title = sqlDataReader.GetString(1);
             String content = sqlDataReader.GetString(2);
             String publishTime = sqlDataReader.GetString(3);
@@ -73,6 +75,7 @@ public partial class usersearchArticle : System.Web.UI.Page
 
         //command.Parameters.AddWithValue("@Title", "你好");
 
+        
         Connection.Open();
         SqlDataReader sqlDataReader = command.ExecuteReader();
         while (sqlDataReader.Read())

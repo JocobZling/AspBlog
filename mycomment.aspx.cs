@@ -11,7 +11,7 @@ public partial class mycomment : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-        string aid = "111";//Session["ArticleID"].ToString();
+        string aid = Session["articleID"].ToString();
         Label1.Text = aid;
 
 
