@@ -17,8 +17,8 @@ public partial class articleDetail : System.Web.UI.Page
         SqlConnection Connection = new SqlConnection(strConnection);
         String strSQL = "select * from Articles where ArticleID=@ArticleID";
         SqlCommand command = new SqlCommand(strSQL, Connection);
-
-        command.Parameters.AddWithValue("@ArticleID", 3);
+        string id = getUrl();
+        command.Parameters.AddWithValue("@ArticleID", id);
         Connection.Open();
         SqlDataReader sqlDataReader = command.ExecuteReader();
 
@@ -39,20 +39,28 @@ public partial class articleDetail : System.Web.UI.Page
     //获取类型
     public String getType(int num)
     {
-        String type="";
+        String type = "";
         if (num == 1)
         {
             type = "科技";
         }
-        else if(num ==2)
+        else if (num == 2)
         {
             type = "情感";
         }
-        else if(num ==3)
+        else if (num == 3)
         {
             type = "生活";
         }
         return type;
+    }
+    //获取url的id
+    public String getUrl()
+    {
+        string url = Request.Url.Query;
+        string[] urlArr = url.Split('=');
+        string id = urlArr[1];
+        return id;
     }
 
     protected void GridView1_SelectedIndexChanged(object sender, EventArgs e)

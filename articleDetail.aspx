@@ -22,9 +22,9 @@
             <div class="main">
                 <a href="index.aspx"><span class="logoText">Blog</span></a>
                 <ul class="layui-nav">
-                    <li class="layui-nav-item layui-this"><a href="index.aspx">首页</a></li>
-                    <li class="layui-nav-item"><a href="">博文</a></li>
-                    <li class="layui-nav-item"><a href="">留言板</a></li>
+                    <li class="layui-nav-item "><a href="index.aspx">首页</a></li>
+                    <li class="layui-nav-item layui-this"><a href="usersearchArticle.aspx">博文</a></li>
+                    <li class="layui-nav-item"><a href="addLiuyan.aspx">留言板</a></li>
                     <li class="layui-nav-item"><a href="">联系我们</a></li>
                     <li class="layui-nav-item">
                     <asp:LinkButton ID="LinkButton1" runat="server" PostBackUrl="~/loginUp.aspx">登录</asp:LinkButton></li>
@@ -168,6 +168,9 @@
         }
         window.addEventListener("scroll", upToTop);
         layui.use('element', function () {
+            var element = layui.element;
+        });
+            layui.use('element', function () {
             var element = layui.element;
         });
     </script>
