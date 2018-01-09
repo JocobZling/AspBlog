@@ -50,7 +50,7 @@
                             <br />
                             <div class="contentDetail">
                                 <asp:Label ID="Label4" runat="server" Text="发表时间："></asp:Label>
-                                <asp:Label ID="Label5" runat="server" Text="浏览量："></asp:Label>
+                                
                                 <br />
                                 <asp:Label ID="Label2" runat="server" Text="作者："></asp:Label>
                                 <asp:Label ID="Label3" runat="server" Text="类型："></asp:Label>
