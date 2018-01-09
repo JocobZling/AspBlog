@@ -12,20 +12,23 @@ public partial class updateArticle : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-   //     if (Session["use"] == null)
-     //       Response.Redirect("~/loginUp.aspx");
-        string strConnection = WebConfigurationManager.ConnectionStrings["BlogConnectionString"].ConnectionString.ToString();
-        SqlConnection Connection = new SqlConnection(strConnection);
-        String strSQL = "select * from Articles where ArticleID=@ArticleID";
-        SqlCommand command = new SqlCommand(strSQL, Connection);
-        string id = getUrl();
-        command.Parameters.AddWithValue("@ArticleID", id);
-        Connection.Open();
-        SqlDataReader sqlDataReader = command.ExecuteReader();
-        while (sqlDataReader.Read())
+        //     if (Session["use"] == null)
+        //       Response.Redirect("~/loginUp.aspx");
+        if (!IsPostBack)
         {
-            TextBox3.Text = sqlDataReader.GetString(1);
-            TextBox1.Text = sqlDataReader.GetString(2);
+            string strConnection = WebConfigurationManager.ConnectionStrings["BlogConnectionString"].ConnectionString.ToString();
+            SqlConnection Connection = new SqlConnection(strConnection);
+            String strSQL = "select * from Articles where ArticleID=@ArticleID";
+            SqlCommand command = new SqlCommand(strSQL, Connection);
+            string id = getUrl();
+            command.Parameters.AddWithValue("@ArticleID", id);
+            Connection.Open();
+            SqlDataReader sqlDataReader = command.ExecuteReader();
+            while (sqlDataReader.Read())
+            {
+                TextBox3.Text = sqlDataReader.GetString(1);
+                TextBox1.Text = sqlDataReader.GetString(2);
+            }
         }
     }
     //获取url的id
@@ -34,6 +37,7 @@ public partial class updateArticle : System.Web.UI.Page
         string url = Request.Url.Query;
         string[] urlArr = url.Split('=');
         string id = urlArr[1];
+      
         return id;
     }
     protected void Button1_Click(object sender, EventArgs e)

@@ -14,6 +14,30 @@ public partial class articleDetail : System.Web.UI.Page
     protected void Page_Load(object sender, EventArgs e)
     {
 
+        if (Session["use"] != null)
+        {
+            if (Session["use"].ToString() == "用户")
+            {
+                LinkButton1.Text = Session["sno"].ToString();
+                LinkButton2.PostBackUrl = "~/userIndex.aspx";
+                LinkButton2.Text = "个人信息";
+                LinkButton3.Visible = true;
+                LinkButton4.Visible = true;
+                LinkButton6.Visible = false;
+            }
+            else if (Session["use"].ToString() == "管理员")
+            {
+                LinkButton1.Text = Session["sno"].ToString();
+                LinkButton2.PostBackUrl = "~/userIndex.aspx";
+                LinkButton2.Text = "个人信息";
+                LinkButton3.Visible = true;
+                LinkButton4.Visible = true;
+                LinkButton5.Visible = true;
+                LinkButton6.Visible = true;
+                LinkButton6.PostBackUrl = "~/updateArticle.aspx?id="+ Session["articleID"];
+            }
+        }
+
         string strConnection = WebConfigurationManager.ConnectionStrings["BlogConnectionString"].ConnectionString.ToString();
         SqlConnection Connection = new SqlConnection(strConnection);
         String strSQL = "select * from Articles where ArticleID=@ArticleID";
@@ -21,8 +45,13 @@ public partial class articleDetail : System.Web.UI.Page
         string id = getUrl();
         command.Parameters.AddWithValue("@ArticleID", id);
 
+
         Session["articleID"] = id;
         Label6.Text = id;
+
+            Session["articleID"] = id;
+            Label6.Text = id;
+
 
         Connection.Open();
         SqlDataReader sqlDataReader = command.ExecuteReader();
@@ -33,17 +62,29 @@ public partial class articleDetail : System.Web.UI.Page
             String type = getType(num);
 
 
+
+
+
             Label1.Text = sqlDataReader.GetString(1) + "";
             Label2.Text = "zl";
             Label3.Text = type + "";
             Label4.Text = sqlDataReader.GetString(3) + "";
+
             // 新增       // Label5.Text += Application["total"].ToString() + "";
+
+
+            // Label5.Text += Application["total"].ToString() + "";
 
             Label1.Text += sqlDataReader.GetString(1) + "";
             Label2.Text += "zl";
             Label3.Text += type + "";
             Label4.Text += sqlDataReader.GetString(3) + "";
+
             //  Label5.Text += Application["total"].ToString() + "";
+
+
+          //  Label5.Text += Application["total"].ToString() + "";
+            Label5.Text = "浏览量：0";
 
             Literal innerHtml = new Literal();
             innerHtml.Text = sqlDataReader.GetString(2) + "";
@@ -82,7 +123,18 @@ public partial class articleDetail : System.Web.UI.Page
     {
 
     }
-
+    protected void LinkButton4_Click(object sender, EventArgs e)
+    {
+        Session.Remove("use");
+        Session.Remove("sno");
+        Session.Remove("password");
+        LinkButton5.Visible = false;
+        LinkButton1.Text = "未登录";
+        LinkButton2.Text = "登录";
+        LinkButton2.PostBackUrl = "~/loginUp.aspx";
+        LinkButton3.Visible = false;
+        LinkButton4.Visible = false;
+    }
     protected void Button1_Click(object sender, EventArgs e)
     {
         if (Session["sno"] == null)
