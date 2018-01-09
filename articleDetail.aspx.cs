@@ -69,21 +69,6 @@ public partial class articleDetail : System.Web.UI.Page
             Label2.Text = "zl";
             Label3.Text = type + "";
             Label4.Text = sqlDataReader.GetString(3) + "";
-
-            // 新增       // Label5.Text += Application["total"].ToString() + "";
-
-
-            // Label5.Text += Application["total"].ToString() + "";
-
-            Label1.Text += sqlDataReader.GetString(1) + "";
-            Label2.Text += "zl";
-            Label3.Text += type + "";
-            Label4.Text += sqlDataReader.GetString(3) + "";
-
-            //  Label5.Text += Application["total"].ToString() + "";
-
-
-          //  Label5.Text += Application["total"].ToString() + "";
             Label5.Text = "浏览量：0";
 
             Literal innerHtml = new Literal();
