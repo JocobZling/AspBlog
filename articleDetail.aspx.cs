@@ -13,6 +13,7 @@ public partial class articleDetail : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
+
         if (Session["use"] != null)
         {
             if (Session["use"].ToString() == "用户")
@@ -36,6 +37,7 @@ public partial class articleDetail : System.Web.UI.Page
                 LinkButton6.PostBackUrl = "~/updateArticle.aspx?id="+ Session["articleID"];
             }
         }
+
         string strConnection = WebConfigurationManager.ConnectionStrings["BlogConnectionString"].ConnectionString.ToString();
         SqlConnection Connection = new SqlConnection(strConnection);
         String strSQL = "select * from Articles where ArticleID=@ArticleID";
@@ -43,8 +45,13 @@ public partial class articleDetail : System.Web.UI.Page
         string id = getUrl();
         command.Parameters.AddWithValue("@ArticleID", id);
 
+
+        Session["articleID"] = id;
+        Label6.Text = id;
+
             Session["articleID"] = id;
             Label6.Text = id;
+
 
         Connection.Open();
         SqlDataReader sqlDataReader = command.ExecuteReader();
@@ -53,17 +60,17 @@ public partial class articleDetail : System.Web.UI.Page
         {
             int num = sqlDataReader.GetInt32(4);
             String type = getType(num);
+
+
+
+
+
             Label1.Text = sqlDataReader.GetString(1) + "";
             Label2.Text = "zl";
             Label3.Text = type + "";
             Label4.Text = sqlDataReader.GetString(3) + "";
-            // Label5.Text += Application["total"].ToString() + "";
-            Label1.Text += sqlDataReader.GetString(1) + "";
-            Label2.Text += "zl";
-            Label3.Text += type + "";
-            Label4.Text += sqlDataReader.GetString(3) + "";
-          //  Label5.Text += Application["total"].ToString() + "";
             Label5.Text = "浏览量：0";
+
             Literal innerHtml = new Literal();
             innerHtml.Text = sqlDataReader.GetString(2) + "";
             Panel1.Controls.Add(innerHtml);
@@ -115,79 +122,90 @@ public partial class articleDetail : System.Web.UI.Page
     }
     protected void Button1_Click(object sender, EventArgs e)
     {
-        string aid =Session["articleID"].ToString();
-        string name =Session["sno"].ToString();
-        
+        if (Session["sno"] == null)
+        {
+            Response.Write("<script>alert('请先登录再评论!')</script>");
+            TextBox1.Text = "";
 
-
-
-        if (TextBox1.Text == "")
-            Response.Write("<script>alert('评论不能为空!')</script>");
+        }
         else
         {
 
+            string aid = Session["articleID"].ToString();
+            string name = Session["sno"].ToString();
 
 
-            string sqlconnstr = ConfigurationManager.ConnectionStrings["BlogConnectionString"].ConnectionString;
-            SqlConnection sqlconn = new SqlConnection(sqlconnstr);
-            //建立DataSet对象
-            DataSet ds = new DataSet();
-            //建立DataTable对象
-            DataTable dtable;
-            //建立DataRowCollection对象
-            DataRowCollection coldrow;
-            //建立DataRow对象
-            DataRow drow;
-            //打开连接
-            sqlconn.Open();
-            //建立DataAdapter对象
-            SqlDataAdapter sqld = new SqlDataAdapter("select * from Comments", sqlconn);
-            //自己定义Update命令，其中@NAME，@NO是两个参数
 
-            SqlCommandBuilder cb = new SqlCommandBuilder(sqld);
 
-            //用Fill方法返回的数据，填充DataSet，数据表取名为“tabstudent”
-            sqld.Fill(ds, "tabstudent");
-            //将数据表tabstudent的数据复制到DataTable对象
-            dtable = ds.Tables["tabstudent"];
-            //用DataRowCollection对象获取这个数据表的所有数据行
-            coldrow = dtable.Rows;
-            //修改操作，逐行遍历，取出各行的数据
-            int n;
-            int Cmtid;
-            n = coldrow.Count;
-            if (n >= 1)
-            {
-                drow = coldrow[n - 1];
-                Cmtid = (Convert.ToInt32(drow[0]) + 1);
-            }
+            if (TextBox1.Text == "")
+                Response.Write("<script>alert('评论不能为空!')</script>");
             else
-                Cmtid = 1;
-            drow = ds.Tables["tabstudent"].NewRow();
-            drow[0] = Cmtid;
-            drow[1] = TextBox1.Text;
-            drow[2] = name;
-            drow[3] = System.DateTime.Now.ToString();
-            drow[4] = aid;
+            {
 
 
-            ds.Tables["tabstudent"].Rows.Add(drow);
 
-            //提交更新
-            sqld.Update(ds, "tabstudent");
-            TextBox1.Text = "";
-            GridView1.DataBind();
+                string sqlconnstr = ConfigurationManager.ConnectionStrings["BlogConnectionString"].ConnectionString;
+                SqlConnection sqlconn = new SqlConnection(sqlconnstr);
+                //建立DataSet对象
+                DataSet ds = new DataSet();
+                //建立DataTable对象
+                DataTable dtable;
+                //建立DataRowCollection对象
+                DataRowCollection coldrow;
+                //建立DataRow对象
+                DataRow drow;
+                //打开连接
+                sqlconn.Open();
+                //建立DataAdapter对象
+                SqlDataAdapter sqld = new SqlDataAdapter("select * from Comments", sqlconn);
+                //自己定义Update命令，其中@NAME，@NO是两个参数
 
-            sqlconn.Close();
-            sqlconn = null;
-           // Response.Redirect("articleDetail.aspx");
-            HtmlGenericControl a = new HtmlGenericControl("a");
-            String id = Session["articleID"].ToString();
-            String url = "articleDetail.aspx?id=" + id;
-            a.Attributes.Add("href", string.Format("articleDetail.aspx?id={0}", id.ToString()));
+                SqlCommandBuilder cb = new SqlCommandBuilder(sqld);
+
+                //用Fill方法返回的数据，填充DataSet，数据表取名为“tabstudent”
+                sqld.Fill(ds, "tabstudent");
+                //将数据表tabstudent的数据复制到DataTable对象
+                dtable = ds.Tables["tabstudent"];
+                //用DataRowCollection对象获取这个数据表的所有数据行
+                coldrow = dtable.Rows;
+                //修改操作，逐行遍历，取出各行的数据
+                int n;
+                int Cmtid;
+                n = coldrow.Count;
+                if (n >= 1)
+                {
+                    drow = coldrow[n - 1];
+                    Cmtid = (Convert.ToInt32(drow[0]) + 1);
+                }
+                else
+                    Cmtid = 1;
+                drow = ds.Tables["tabstudent"].NewRow();
+                drow[0] = Cmtid;
+                drow[1] = TextBox1.Text;
+                drow[2] = name;
+                drow[3] = System.DateTime.Now.ToString();
+                drow[4] = aid;
 
 
-            
+                ds.Tables["tabstudent"].Rows.Add(drow);
+
+                //提交更新
+                sqld.Update(ds, "tabstudent");
+                TextBox1.Text = "";
+                GridView1.DataBind();
+
+                sqlconn.Close();
+                sqlconn = null;
+                // Response.Redirect("articleDetail.aspx");
+            }
         }
+        HtmlGenericControl a = new HtmlGenericControl("a");
+        String id = Session["articleID"].ToString();
+        String url = "articleDetail.aspx?id=" + id;
+        a.Attributes.Add("href", string.Format("articleDetail.aspx?id={0}", id.ToString()));
+
+
+
+
     }
 }
