@@ -8,6 +8,8 @@ using System.Reflection;
 using System.Web.Configuration;
 using System.Data.SqlClient;
 using System.IO;
+using System.Text.RegularExpressions;
+
 public partial class manageIndex : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
@@ -47,5 +49,17 @@ public partial class manageIndex : System.Web.UI.Page
         myPostBackOptions.PerformValidation = false;
         String evt = Page.ClientScript.GetPostBackClientHyperlink(sender as GridView, "Select$" + e.Row.RowIndex.ToString());
         e.Row.Attributes.Add("onclick", evt);
+    }
+    //匹配出p标签的内容
+    public String getCotent(String contentHtml)
+    {
+        string pattern = "<p>[^<]*</p>";
+        string result = "";
+        foreach (Match match in Regex.Matches(contentHtml, pattern))
+            result += match.Value;
+        Regex replaceSpace = new Regex(@"</?[p|P][^>]*>", RegexOptions.IgnoreCase);
+        result = replaceSpace.Replace(result, "");
+        string Result = result.Replace("<p>", "").Replace("<p></p>", "<span>").Replace("&nbsp;", "");
+        return Result.Substring(0, 200) + "......";
     }
 }
