@@ -8,6 +8,8 @@ using System.Reflection;
 using System.Web.Configuration;
 using System.Data.SqlClient;
 using System.IO;
+using System.Text.RegularExpressions;
+
 public partial class manageIndex : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)

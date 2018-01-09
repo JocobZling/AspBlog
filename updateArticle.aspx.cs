@@ -34,11 +34,11 @@ public partial class updateArticle : System.Web.UI.Page
     //获取url的id
     public String getUrl()
     {
-       // string url = Request.Url.Query;
-       // string[] urlArr = url.Split('=');
-      //  string id = urlArr[1];
+        string url = Request.Url.Query;
+        string[] urlArr = url.Split('=');
+        string id = urlArr[1];
       
-        return "1";
+        return id;
     }
     protected void Button1_Click(object sender, EventArgs e)
     {
