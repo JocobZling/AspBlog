@@ -14,6 +14,26 @@ public partial class userSearch2 : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
+        if (Session["use"] != null)
+        {
+            if (Session["use"].ToString() == "用户")
+            {
+                LinkButton1.Text = Session["sno"].ToString();
+                LinkButton2.PostBackUrl = "~/userIndex.aspx";
+                LinkButton2.Text = "个人信息";
+                LinkButton3.Visible = true;
+                LinkButton4.Visible = true;
+            }
+            else if (Session["use"].ToString() == "管理员")
+            {
+                LinkButton1.Text = Session["sno"].ToString();
+                LinkButton2.PostBackUrl = "~/userIndex.aspx";
+                LinkButton2.Text = "个人信息";
+                LinkButton3.Visible = true;
+                LinkButton4.Visible = true;
+                LinkButton5.Visible = true;
+            }
+        }
         string strConnection = WebConfigurationManager.ConnectionStrings["LocalSqlServer"].ConnectionString.ToString();
         SqlConnection Connection = new SqlConnection(strConnection);
         String strSQL = "Select * From Articles where Tag_ID=2";
@@ -62,6 +82,18 @@ public partial class userSearch2 : System.Web.UI.Page
             Panel1.Controls.Add(label4);
             Panel1.Controls.Add(hr);
         }
+    }
+    protected void LinkButton4_Click(object sender, EventArgs e)
+    {
+        Session.Remove("use");
+        Session.Remove("sno");
+        Session.Remove("password");
+        LinkButton5.Visible = false;
+        LinkButton1.Text = "未登录";
+        LinkButton2.Text = "登录";
+        LinkButton2.PostBackUrl = "~/loginUp.aspx";
+        LinkButton3.Visible = false;
+        LinkButton4.Visible = false;
     }
     protected void Button1_Click1(object sender, EventArgs e)
     {
