@@ -32,6 +32,12 @@ public partial class updateArticle : System.Web.UI.Page
         }
     }
     //获取url的id
+    protected void LinkButton2_Click(object sender, EventArgs e)
+    {
+        Session.Remove("use");
+        Session.Remove("sno");
+        Response.Redirect("~/index.aspx");
+    }
     public String getUrl()
     {
         string url = Request.Url.Query;
