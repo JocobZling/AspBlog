@@ -74,7 +74,7 @@ public partial class articleDetail : System.Web.UI.Page
             Label2.Text = "zl";
             Label3.Text = type + "";
             Label4.Text = sqlDataReader.GetString(3) + "";
-            Label5.Text = "浏览量：0";
+           // Label5.Text = "浏览量：0";
 
             Literal innerHtml = new Literal();
             innerHtml.Text = sqlDataReader.GetString(2) + "";
