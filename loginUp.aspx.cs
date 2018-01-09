@@ -16,6 +16,7 @@ public partial class loginUp : System.Web.UI.Page
     }
     protected void Button1_Click(object sender, EventArgs e)
     {
+        //Session["sno"] ="";
         bool boolReturnValue = false;
         string strConnection = WebConfigurationManager.ConnectionStrings["LocalSqlServer"].ConnectionString.ToString();
         SqlConnection Connection = new SqlConnection(strConnection);
