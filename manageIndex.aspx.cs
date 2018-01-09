@@ -38,7 +38,7 @@ public partial class manageIndex : System.Web.UI.Page
             if (e.Row.RowType == DataControlRowType.DataRow)
             {
                 //当鼠标停留时更改背景色
-                e.Row.Attributes.Add("onmouseover", "c=this.style.backgroundColor;this.style.backgroundColor='#006400'");
+                e.Row.Attributes.Add("onmouseover", "c=this.style.backgroundColor;this.style.backgroundColor='#5FB878'");
                 //当鼠标移开时还原背景色
                 e.Row.Attributes.Add("onmouseout", "this.style.backgroundColor=c");
             }
@@ -49,5 +49,17 @@ public partial class manageIndex : System.Web.UI.Page
         myPostBackOptions.PerformValidation = false;
         String evt = Page.ClientScript.GetPostBackClientHyperlink(sender as GridView, "Select$" + e.Row.RowIndex.ToString());
         e.Row.Attributes.Add("onclick", evt);
+    }
+
+    protected string MyContent(string input)
+    {
+        if (input.Length > 200)
+        {
+            return input.Substring(0, 200)+"......";
+        }
+        else
+        {
+            return input.Substring(0, input.Length);
+        }
     }
 }
