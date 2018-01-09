@@ -48,4 +48,16 @@ public partial class manageIndex : System.Web.UI.Page
         String evt = Page.ClientScript.GetPostBackClientHyperlink(sender as GridView, "Select$" + e.Row.RowIndex.ToString());
         e.Row.Attributes.Add("onclick", evt);
     }
+    /*public String getCotent(String contentHtml)
+    {
+        string pattern = "<p>[^<]*</p>";
+        string result = "";
+        foreach (Match match in Regex.Matches(contentHtml, pattern))
+            result += match.Value;
+        Regex replaceSpace = new Regex(@"</?[p|P][^>]*>", RegexOptions.IgnoreCase);
+        result = replaceSpace.Replace(result, "");
+        string Result = result.Replace("<p>", "").Replace("<p></p>", "<span>").Replace("&nbsp;", "");
+        return Result.Substring(0, 200) + "......";
+    }*/
+
 }
