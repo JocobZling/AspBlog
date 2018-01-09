@@ -183,6 +183,9 @@ public partial class usersearchArticle : System.Web.UI.Page
         Regex replaceSpace = new Regex(@"</?[p|P][^>]*>", RegexOptions.IgnoreCase);
         result= replaceSpace.Replace(result, "");
         string Result = result.Replace("<p>","").Replace("<p></p>", "<span>").Replace("&nbsp;","");
-        return Result.Substring(0, 200)+"......";
+        if (Result.Length > 200)
+            return Result.Substring(0, 200) + "......";
+        else
+            return Result;
     }
 }
