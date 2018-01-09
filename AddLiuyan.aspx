@@ -57,7 +57,7 @@
                             <dd><asp:LinkButton ID="LinkButton5" runat="server" PostBackUrl="~/manageIndex.aspx" Text="管理首页" Visible="false"></asp:LinkButton></dd>
                             <dd><asp:LinkButton ID="LinkButton2" runat="server" PostBackUrl="~/loginUp.aspx" Text="登录"></asp:LinkButton></dd>
                             <dd><asp:LinkButton ID="LinkButton3" runat="server" PostBackUrl="~/changePassword.aspx" Text="修改密码" Visible="false"></asp:LinkButton></dd>
-                           <dd> <asp:LinkButton ID="LinkButton4" runat="server" PostBackUrl="~/index.aspx" Text="退出" Visible="false"  OnClick="LinkButton4_Click"></asp:LinkButton></dd>                          
+                           <dd> <asp:LinkButton ID="LinkButton4" runat="server"  Text="退出" Visible="false"  OnClick="LinkButton4_Click"></asp:LinkButton></dd>                          
                         </dl></li>
                 </ul>
             </div>
