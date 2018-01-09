@@ -11,12 +11,7 @@ public partial class AddLiuyan : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-        if (Session["use"] == null)
-        {
-            
-            Response.Redirect("index.aspx");
-            Response.Write("<script>alert('请先登录再留言')</script>");
-        }
+       
         if (Session["use"] != null)
         {
             if (Session["use"].ToString() == "用户")

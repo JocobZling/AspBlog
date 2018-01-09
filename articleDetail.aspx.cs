@@ -13,11 +13,14 @@ public partial class articleDetail : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-
+        
         if (Session["use"] != null)
         {
+           
             if (Session["use"].ToString() == "用户")
             {
+                GridView1.Visible = true;
+                GridView2.Visible = false;
                 LinkButton1.Text = Session["sno"].ToString();
                 LinkButton2.PostBackUrl = "~/userIndex.aspx";
                 LinkButton2.Text = "个人信息";
@@ -27,6 +30,8 @@ public partial class articleDetail : System.Web.UI.Page
             }
             else if (Session["use"].ToString() == "管理员")
             {
+                GridView1.Visible = false;
+                GridView2.Visible = true;
                 LinkButton1.Text = Session["sno"].ToString();
                 LinkButton2.PostBackUrl = "~/userIndex.aspx";
                 LinkButton2.Text = "个人信息";
