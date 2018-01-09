@@ -21,8 +21,10 @@
     
     </div>
         <asp:Panel ID="Panel1" runat="server" Height="24px" HorizontalAlign="Center">
+            <asp:Label ID="Label1" runat="server" Text="Label"></asp:Label>
             <asp:Button ID="Button1" runat="server" Height="21px" OnClick="Button1_Click" style="margin-left: 0px" Text="确定" Width="66px" />
         </asp:Panel>
     </form>
+    
 </body>
 </html>

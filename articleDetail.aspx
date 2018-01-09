@@ -54,21 +54,13 @@
                             </asp:Panel>
                         </div>
 
-                    </div>
-                </div>
-            </div>
-        </div>
-       
-      
-
-
-         <asp:Panel ID="Panel2" runat="server" Height="24px" HorizontalAlign="Center">
+                        <asp:Panel ID="Panel2" runat="server" Height="24px" HorizontalAlign="Center">
            
 
-              <div style="text-align:center; height: 296px;" >
+              
     
         评论内容：<br />
-        <asp:TextBox ID="TextBox1" runat="server" Height="177px" TextMode="MultiLine" Width="794px"></asp:TextBox>
+        <asp:TextBox ID="TextBox1" runat="server" Height="177px" TextMode="MultiLine" Width="547px"></asp:TextBox>
         <br />
         <br />
                   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<asp:Label ID="Label6" runat="server" Visible="False"></asp:Label>
@@ -128,13 +120,14 @@
             
             
         </asp:GridView>
-        </div>
+        
         <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:BlogConnectionString %>" SelectCommand="SELECT * FROM [Comments] WHERE ([ArticleID] = @ArticleID) ORDER BY [Cmt_Time] DESC">
             <SelectParameters>
                 <asp:ControlParameter ControlID="Label6" Name="ArticleID" PropertyName="Text" Type="Int32" />
             </SelectParameters>
         </asp:SqlDataSource>
-        </asp:Panel>
+        
+
 
 
 
@@ -152,6 +145,8 @@
         </div>
     </div>
 </footer>
+
+                        </asp:Panel>
     </form>
         <a href="#" id="backToTop" class="cd-top">Top</a>
     <script>
