@@ -46,7 +46,13 @@
                 <asp:BoundField DataField="ArticleID" HeaderText="ArticleID" SortExpression="ArticleID" InsertVisible="False" ReadOnly="True" />
 <asp:BoundField DataField="Title" HeaderText="Title" SortExpression="Title">
 </asp:BoundField>
-                <asp:BoundField DataField="A_Content" HeaderText="A_Content" SortExpression="A_Content" ApplyFormatInEditMode="true" HtmlEncode="false" />
+                 <asp:TemplateField HeaderText="A_Content" SortExpression="A_Content">
+                  
+                     <ItemTemplate>
+                         <asp:Label ID="Label1" runat="server" Text='<%# MyContent((string)Eval("A_Content"))%>'></asp:Label>
+                     </ItemTemplate>
+                 </asp:TemplateField>
+
                 <asp:BoundField DataField="PublishedTime" HeaderText="PublishedTime" SortExpression="PublishedTime">
                 </asp:BoundField>
             </Columns>

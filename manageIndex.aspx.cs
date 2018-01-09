@@ -50,6 +50,16 @@ public partial class manageIndex : System.Web.UI.Page
         String evt = Page.ClientScript.GetPostBackClientHyperlink(sender as GridView, "Select$" + e.Row.RowIndex.ToString());
         e.Row.Attributes.Add("onclick", evt);
     }
-   
 
+    protected string MyContent(string input)
+    {
+        if (input.Length > 200)
+        {
+            return input.Substring(0, 200)+"......";
+        }
+        else
+        {
+            return input.Substring(0, input.Length);
+        }
+    }
 }
