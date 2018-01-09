@@ -36,7 +36,7 @@ public partial class manageIndex : System.Web.UI.Page
             if (e.Row.RowType == DataControlRowType.DataRow)
             {
                 //当鼠标停留时更改背景色
-                e.Row.Attributes.Add("onmouseover", "c=this.style.backgroundColor;this.style.backgroundColor='#006400'");
+                e.Row.Attributes.Add("onmouseover", "c=this.style.backgroundColor;this.style.backgroundColor='#5FB878'");
                 //当鼠标移开时还原背景色
                 e.Row.Attributes.Add("onmouseout", "this.style.backgroundColor=c");
             }
@@ -48,16 +48,6 @@ public partial class manageIndex : System.Web.UI.Page
         String evt = Page.ClientScript.GetPostBackClientHyperlink(sender as GridView, "Select$" + e.Row.RowIndex.ToString());
         e.Row.Attributes.Add("onclick", evt);
     }
-    /*public String getCotent(String contentHtml)
-    {
-        string pattern = "<p>[^<]*</p>";
-        string result = "";
-        foreach (Match match in Regex.Matches(contentHtml, pattern))
-            result += match.Value;
-        Regex replaceSpace = new Regex(@"</?[p|P][^>]*>", RegexOptions.IgnoreCase);
-        result = replaceSpace.Replace(result, "");
-        string Result = result.Replace("<p>", "").Replace("<p></p>", "<span>").Replace("&nbsp;", "");
-        return Result.Substring(0, 200) + "......";
-    }*/
+   
 
 }
