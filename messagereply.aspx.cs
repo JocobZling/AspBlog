@@ -11,11 +11,23 @@ public partial class messagereply : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
+        if (Session["sno"] == null)
+        {
+            Label1.Text = "请先登录再回复！";
+            Label1.Visible = true;
+            TextBox1.Text = "";
+            TextBox1.ReadOnly = true;
+        }
 
     }
     protected void Button1_Click(object sender, EventArgs e)
     {
-        if (TextBox1.Text == "")
+        if(Session["sno"] == null)
+        {
+            Response.Redirect("Addliuyan.aspx");
+        }
+
+        else if (TextBox1.Text == "")
             Response.Write("<script>alert('回复不能为空!')</script>");
         else
         {

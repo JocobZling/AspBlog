@@ -72,14 +72,40 @@
                             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<asp:Label ID="Label6" runat="server" Visible="False"></asp:Label>
                             <asp:Panel ID="Panel3" runat="server" Height="31px" HorizontalAlign="Center">
 
-                                <asp:Button ID="Button1" runat="server" Height="28px" Text="确定" Width="57px" OnClick="Button1_Click" />
+                                <asp:Button ID="Button1" runat="server" Height="28px" Text="确定" Width="57px" OnClick="Button1_Click" class="btn-default btn" />
                             </asp:Panel>
                             <br />
                             <br />
                             <br />
+                            <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:BlogConnectionString %>" DeleteCommand="DELETE FROM [Comments] WHERE [Cmt_ID] = @Cmt_ID" InsertCommand="INSERT INTO [Comments] ([Cmt_ID], [Cmt_Content], [Cmt_UserName], [Cmt_Time], [ArticleID], [reply], [reply_time]) VALUES (@Cmt_ID, @Cmt_Content, @Cmt_UserName, @Cmt_Time, @ArticleID, @reply, @reply_time)" SelectCommand="SELECT * FROM [Comments] WHERE ([ArticleID] = @ArticleID) ORDER BY [Cmt_Time] DESC" UpdateCommand="UPDATE [Comments] SET [Cmt_Content] = @Cmt_Content, [Cmt_UserName] = @Cmt_UserName, [Cmt_Time] = @Cmt_Time, [ArticleID] = @ArticleID, [reply] = @reply, [reply_time] = @reply_time WHERE [Cmt_ID] = @Cmt_ID">
+                                <DeleteParameters>
+                                    <asp:Parameter Name="Cmt_ID" Type="Int32" />
+                                </DeleteParameters>
+                                <InsertParameters>
+                                    <asp:Parameter Name="Cmt_ID" Type="Int32" />
+                                    <asp:Parameter Name="Cmt_Content" Type="String" />
+                                    <asp:Parameter Name="Cmt_UserName" Type="String" />
+                                    <asp:Parameter Name="Cmt_Time" Type="DateTime" />
+                                    <asp:Parameter Name="ArticleID" Type="Int32" />
+                                    <asp:Parameter Name="reply" Type="String" />
+                                    <asp:Parameter Name="reply_time" Type="DateTime" />
+                                </InsertParameters>
+                                <SelectParameters>
+                                    <asp:ControlParameter ControlID="Label6" Name="ArticleID" PropertyName="Text" Type="Int32" />
+                                </SelectParameters>
+                                <UpdateParameters>
+                                    <asp:Parameter Name="Cmt_Content" Type="String" />
+                                    <asp:Parameter Name="Cmt_UserName" Type="String" />
+                                    <asp:Parameter Name="Cmt_Time" Type="DateTime" />
+                                    <asp:Parameter Name="ArticleID" Type="Int32" />
+                                    <asp:Parameter Name="reply" Type="String" />
+                                    <asp:Parameter Name="reply_time" Type="DateTime" />
+                                    <asp:Parameter Name="Cmt_ID" Type="Int32" />
+                                </UpdateParameters>
+                            </asp:SqlDataSource>
                             <br />
 
-                            评论：<asp:GridView ID="GridView1" runat="server" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" CellPadding="4" DataKeyNames="Cmt_ID" DataSourceID="SqlDataSource1" ForeColor="#333333" GridLines="None" OnSelectedIndexChanged="GridView1_SelectedIndexChanged" HorizontalAlign="Center">
+                            评论：<asp:GridView ID="GridView1" runat="server" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" CellPadding="4" DataKeyNames="Cmt_ID" DataSourceID="SqlDataSource2" ForeColor="#333333" GridLines="None" OnSelectedIndexChanged="GridView1_SelectedIndexChanged" HorizontalAlign="Center" PageSize="5">
                                 <AlternatingRowStyle BackColor="White" />
                                 <Columns>
 
@@ -115,7 +141,7 @@
                                 <EditRowStyle BackColor="#2461BF" />
                                 <FooterStyle BackColor="#009688" Font-Bold="True" ForeColor="White" />
                                 <HeaderStyle BackColor="#009688" Font-Bold="True" ForeColor="White" />
-                                <PagerStyle BackColor="#2461BF" ForeColor="White" HorizontalAlign="Center" />
+                                <PagerStyle BackColor="#009688" ForeColor="White" HorizontalAlign="Center" />
                                 <RowStyle BackColor="#EFF3FB" />
                                 <SelectedRowStyle BackColor="#D1DDF1" Font-Bold="True" ForeColor="#333333" />
                                 <SortedAscendingCellStyle BackColor="#F5F7FB" />
@@ -126,6 +152,59 @@
 
 
                             </asp:GridView>
+
+
+                            <asp:GridView ID="GridView2" runat="server" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" CellPadding="4" DataKeyNames="Cmt_ID" DataSourceID="SqlDataSource2" ForeColor="#333333" GridLines="None" OnSelectedIndexChanged="GridView1_SelectedIndexChanged" HorizontalAlign="Center" PageSize="5" Visible="False" Width="830px">
+                                <AlternatingRowStyle BackColor="White" />
+                                <Columns>
+
+                                    <asp:CommandField ShowDeleteButton="True" ShowEditButton="True" />
+
+                                    <asp:BoundField DataField="Cmt_UserName" SortExpression="Cmt_UserName" />
+                                    <asp:HyperLinkField Text="：" />
+                                    <asp:BoundField DataField="Cmt_Content" SortExpression="Cmt_Content" ItemStyle-Width="200px">
+
+                                        <ItemStyle Width="200px"></ItemStyle>
+                                    </asp:BoundField>
+
+                                    <asp:BoundField DataField="Cmt_Time" SortExpression="Cmt_Time" ItemStyle-Width="100px" ItemStyle-Height="100">
+
+
+                                        <ItemStyle Height="100px" Width="100px"></ItemStyle>
+                                    </asp:BoundField>
+
+
+                                    <asp:HyperLinkField Text="回复" DataNavigateUrlFields="Cmt_ID" DataNavigateUrlFormatString="commentreply.aspx?Cmt_ID={0}" ItemStyle-Width="100px">
+                                        <ItemStyle Width="100px"></ItemStyle>
+                                    </asp:HyperLinkField>
+                                    <asp:BoundField DataField="reply" SortExpression="reply" ItemStyle-Width="200px">
+                                        <ItemStyle Width="200px"></ItemStyle>
+                                    </asp:BoundField>
+                                    <asp:BoundField DataField="reply_time" SortExpression="reply_time" ItemStyle-Width="100px">
+
+                                        <ItemStyle Width="100px"></ItemStyle>
+                                    </asp:BoundField>
+
+                                </Columns>
+
+
+
+                                <EditRowStyle BackColor="#2461BF" />
+                                <FooterStyle BackColor="#009688" Font-Bold="True" ForeColor="White" />
+                                <HeaderStyle BackColor="#009688" Font-Bold="True" ForeColor="White" />
+                                <PagerStyle BackColor="#009688" ForeColor="White" HorizontalAlign="Center" />
+                                <RowStyle BackColor="#EFF3FB" />
+                                <SelectedRowStyle BackColor="#D1DDF1" Font-Bold="True" ForeColor="#333333" />
+                                <SortedAscendingCellStyle BackColor="#F5F7FB" />
+                                <SortedAscendingHeaderStyle BackColor="#6D95E1" />
+                                <SortedDescendingCellStyle BackColor="#E9EBEF" />
+                                <SortedDescendingHeaderStyle BackColor="#4870BE" />
+
+
+
+                            </asp:GridView>
+
+
                         </div>
                         <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:BlogConnectionString %>" SelectCommand="SELECT * FROM [Comments] WHERE ([ArticleID] = @ArticleID) ORDER BY [Cmt_Time] DESC">
                             <SelectParameters>

@@ -42,6 +42,8 @@
                     <asp:ListItem Value="2">情感</asp:ListItem>
                     <asp:ListItem Value="3">生活</asp:ListItem>
                 </asp:DropDownList>
+                <span class="col-lg-1">上传封面：</span>
+                <asp:FileUpload ID="FileUpimage" runat="server" />
                 <br />
                 <br />
                 <div class="col-lg-10">

@@ -5,14 +5,14 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title>博客首页</title>
-    <link rel="stylesheet" href="layui/css/layui.css"/>
-    <link href="style/index.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="layui/css/layui.css" />
+    <link href="style/index.css" rel="stylesheet" />
     <script type="text/javascript" src="layui/layui.js"></script>
-    <meta name="viewport" content="width=device-width, initial-scale=1"/>
-    <link href="bootstrap-3.3.7-dist/css/bootstrap.css" rel="stylesheet"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link href="bootstrap-3.3.7-dist/css/bootstrap.css" rel="stylesheet" />
     <script type="text/javascript" src="bootstrap-3.3.7-dist/js/jquery-3.2.1.js"></script>
     <script type="text/javascript" src="bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
-   
+
 </head>
 <body>
     <form id="form1" runat="server">
@@ -41,10 +41,9 @@
          </header>
         <div class="logo">
             <img src="image/logo2.png" />
-                        
         </div>
         <!--轮播图-->
-        <div class="container">
+                <div class="container">
             <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
                 <!-- Indicators -->
                 <ol class="carousel-indicators">
@@ -142,7 +141,7 @@
             </div>
         </div>
     </form>
-    <a href="#" style="text-decoration: none;"  id="backToTop" class="cd-top">Top</a>
+    <a href="#" style="text-decoration: none;" id="backToTop" class="cd-top">Top</a>
     <script>
         let a = document.querySelector("#backToTop");
         let header = document.querySelector("header").offsetHeight;
